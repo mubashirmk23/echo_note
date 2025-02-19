@@ -60,6 +60,7 @@ class _AddnewlistExample extends State<AddnewlistExample> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,13 +73,14 @@ class _AddnewlistExample extends State<AddnewlistExample> {
             ),
             SizedBox(height: 10),
             TextField(
+            
               controller: Addtolistcontroller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Addtolist',
+                prefixIcon: Icon(Icons.add,color: Colors.lightGreen,)
               ),
             ),
-           
           ],
         ),
       ),

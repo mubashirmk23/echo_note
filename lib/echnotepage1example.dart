@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_echonotes_/databaseservice.dart';
 
+import 'package:flutter_echonotes_/edittext.dart';
 
 class EchnotepageExample1 extends StatefulWidget {
   const EchnotepageExample1({super.key});
@@ -77,7 +78,19 @@ class _Echnotepage1State extends State<EchnotepageExample1> {
                                         fontWeight: FontWeight.w700),
                                   ),
                                   Spacer(),
-                                  Icon(Icons.edit, color: Colors.white),
+                                  GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    EditTextScreen(
+                                                        title: Ds['title'],
+                                                        content: Ds['contents'],
+                                                        id: Ds["id"])));
+                                      },
+                                      child: Icon(Icons.edit,
+                                          color: Colors.white)),
                                   GestureDetector(
                                       onTap: () async {
                                         Navigator.pop(context);
@@ -107,8 +120,7 @@ class _Echnotepage1State extends State<EchnotepageExample1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:allTextDetails(),
-    
+      body: allTextDetails(),
     );
   }
 }
